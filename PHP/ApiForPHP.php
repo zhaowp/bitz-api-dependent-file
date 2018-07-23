@@ -5,7 +5,7 @@
 
 class bitz
 {
-    protected $secretKey = '';
+    protected $secretKey = 'You secretKey';
     protected $base_url = 'https://apiv2.bitz.com';
     protected $url = '';
     public function __construct($options = null)
@@ -174,6 +174,13 @@ class bitz
     }
 }
 
+//example
+
+$bitz = new bitz();
+
+$parms = array('symbol' => 'eos_btc');
+
+print_r($bitz->ticker($parms));
 
 
 
