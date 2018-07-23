@@ -1,2 +1,2 @@
-# bitz-api-dependent-file
-bitz Api Dependent File
+# Bitz-Api-File
+Bitz-Api-File
