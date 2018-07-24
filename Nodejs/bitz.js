@@ -1,10 +1,8 @@
 var CryptoJS = require('crypto-js');
 var Promise = require('bluebird');
 const request = require('request');
-//
-// const WEB_BASE = 'https://api.bit-z.com/api_v1'; //
-// const WEB_BASE = 'http://apiv2.bitz.com'; //
-const WEB_BASE = 'https://apiv2.bibidev.com'; //
+
+const WEB_BASE = 'https://apiv2.bibidev.com';
 
 const DEFAULT_HEADERS = {
     // "Content-Type": "application/json",

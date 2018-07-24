@@ -8,9 +8,9 @@ const BITZ = require('./bitz');
  * @param tradePwd      需要下单交易时必须传（addEntrustSheet）
  * ------------------------------------------------------------------
  */
-var apiKey 		= '81083a0321572881b0728592ecc9d44e';
-var secretKey 	= 'SapqtOXQrISiXV5TZFbf0U869UKYYXHcqMUIKkAZXtMk6i9rrjE4ZADIqUy2pctn';
-var tradePwd 	= 'piaoyang80';
+var apiKey 		= '';
+var secretKey 	= '';
+var tradePwd 	= '';
 BITZ.setConfig( apiKey, secretKey, tradePwd );
 
 
