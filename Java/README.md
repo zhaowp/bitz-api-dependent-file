@@ -7,8 +7,8 @@
 ```
 
 ```
-String apiKey    = ""; // bitz.com 申请的 api_secret
-String secretKey = ""; // bitz.com 申请的 api_key
+String apiKey    = ""; // bitz.com 申请的 apiKey
+String secretKey = ""; // bitz.com 申请的 secretKey
 String tradePwd  = ""; // 委托单 必须 传递 tradePwd 交易密码
 ```
 
