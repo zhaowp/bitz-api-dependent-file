@@ -66,6 +66,7 @@ class BitZ_Mode():
         """
         __url = self.URL + "ticker?symbol=%s"%(symbol)
         __response = BitZ_Mode().httpsGet(url=__url)
+        print(__response.url)
         return json.dumps(__response.json(),indent=2)
 
 
@@ -149,7 +150,7 @@ class BitZ_Mode():
 
 
     #获取K线数据
-    def kline(self,symbol,resolution,size):
+    def kline(self,symbol,resolution,size,toTime=None):
         """
         :param symbol:eos_btc
         :param resolution: x min ,x hour , x day
@@ -176,14 +177,25 @@ class BitZ_Mode():
                 }
               }
             }
-                    """
-        if size < 300:
-            return "size max 300！"
+        #             """
+        if toTime != None:
+            __toTime = time.strptime(toTime, "%Y-%m-%d %H:%M:%S")
+            toTimeStamp = int(time.mktime(__toTime)*1000)
+            if size < 300:
+                return "size max 300！"
+            else:
+                to = toTimeStamp
+                __url = self.URL + "kline?symbol=%s&resolution=%s&size=%s&to=%s" % (symbol,resolution,size,to)
+                response = BitZ_Mode().httpsGet(url=__url)
+                print(response.url)
+                return json.dumps(response.json(), indent=2)
         else:
-            __url = self.URL + "kline?symbol=%s&resolution=%s&size=%s" % (symbol,resolution,size)
-            response = BitZ_Mode().httpsGet(url=__url)
-            return json.dumps(response.json(), indent=2)
-
+            if size < 300:
+                return "size max 300！"
+            else:
+                __url = self.URL + "kline?symbol=%s&resolution=%s&size=%s" % (symbol,resolution,size)
+                response = BitZ_Mode().httpsGet(url=__url)
+                return json.dumps(response.json(), indent=2)
 
     #获取交易对信息
     def symbolList(self):
@@ -286,9 +298,10 @@ class BitZ_Mode():
         self.params['nonce'] = str(int(time.time() % 1000000))
         self.params['coinFrom'] = str(coinFrom)
         self.params['coinTo'] = str(coinTo)
-        self.params['type'] = int(_type)
         self.params['page'] = int(page)
-        self.params['pageSize'] = int(pageSize)
+        self.params['pageSize'] = pageSize
+        if _type != None:
+            self.params['type'] = int(_type)
         if startTime != None:
             starttimeArray= time.strptime(startTime, "%Y-%m-%d %H:%M:%S")
             startTimeStamp = int(time.mktime(starttimeArray))
@@ -304,7 +317,7 @@ class BitZ_Mode():
 
 
     #获取当前委托
-    def getUserNowEntrustSheet(self,coinFrom,coinTo,_type,page,pageSize,startTime=None,endTime=None):
+    def getUserNowEntrustSheet(self,coinFrom,coinTo,page,pageSize,startTime=None,endTime=None,_type=None):
         """
         :param coinFrom: coin from
         :param coinTo: coin to
@@ -321,9 +334,10 @@ class BitZ_Mode():
         self.params['nonce'] = str(int(time.time() % 1000000))
         self.params['coinFrom'] = str(coinFrom)
         self.params['coinTo'] = str(coinTo)
-        self.params['type'] = int(_type)
         self.params['page'] = int(page)
         self.params['pageSize'] = int(pageSize)
+        if _type != None:
+            self.params['type'] = int(_type)
         if startTime != None:
             starttimeArray= time.strptime(startTime, "%Y-%m-%d %H:%M:%S")
             startTimeStamp = int(time.mktime(starttimeArray))
@@ -339,7 +353,7 @@ class BitZ_Mode():
 
 
     #获取委托单详情
-    def getEntrustSheetInfo(self,entrustSheetId,_type):
+    def getEntrustSheetInfo(self,entrustSheetId):
         """
         :param entrustSheetId: trust id
         :param _type: 1:buy 2:sell
@@ -350,7 +364,6 @@ class BitZ_Mode():
         self.params['timeStamp'] = str(int(time.time()))
         self.params['nonce'] = str(int(time.time() % 1000000))
         self.params['entrustSheetId'] = str(entrustSheetId)
-        self.params['type'] = int(_type)
         self.signature()
         __url = self.TradeURL + "getEntrustSheetInfo"
         __response = BitZ_Mode().httpsPost(url=__url, params=self.params)
