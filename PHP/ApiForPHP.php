@@ -99,21 +99,21 @@ class bitz
         return $this->http_request($url,$send_data);
     }
 
-    //array('apiKey' => '', 'entrustSheetId' => '', 'type' => '');
+    //array('apiKey' => '', 'entrustSheetId' => '');
     public function getEntrustSheetInfo($parms){
         $send_data  = $this->getData($parms);
         $url = $this->url.'/Trade/getEntrustSheetInfo';
         return $this->http_request($url,$send_data);
     }
 
-    //array('apiKey' => '', 'pageSize' => '5', 'page' => '1', 'coinForm' => 'eos', 'coinTo' => 'btc', 'startTime' => '1516535381', 'endTime' => '1532173781')
+    //array('apiKey' => '', 'pageSize' => '5', 'page' => '1', 'coinFrom' => 'eos', 'coinTo' => 'btc', 'startTime' => '1516535381', 'endTime' => '1532173781')
     public function getUserNowEntrustSheet($parms){
         $send_data  = $this->getData($parms);
         $url = $this->url.'/Trade/getUserNowEntrustSheet';
         return $this->http_request($url,$send_data);
     }
 
-    //array('apiKey' => '', 'pageSize' => '5', 'page' => '1', 'coinForm' => 'eos', 'coinTo' => 'btc', 'startTime' => '1516535381', 'endTime' => '1532173781')
+    //array('apiKey' => '', 'pageSize' => '5', 'page' => '1', 'coinFrom' => 'eos', 'coinTo' => 'btc', 'startTime' => '1516535381', 'endTime' => '1532173781')
     public function getUserHistoryEntrustSheet($parms){
         $send_data  = $this->getData($parms);
         $url = $this->url.'/Trade/getUserHistoryEntrustSheet';
