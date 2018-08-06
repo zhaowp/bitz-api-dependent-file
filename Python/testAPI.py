@@ -56,7 +56,7 @@ def coinRate():
 #提交委托单
 def addEntrustSheet():
     _type = '2'             #买：1  卖：2
-    price = '10'            #价格
+    price = '0.54548541'            #价格
     number = '100'            #数量
     symbol = 'bz_usdt'      #交易对
     print BitZ_Mode().addEntrustSheet(_type,price,number,symbol)
@@ -115,10 +115,10 @@ if __name__=="__main__":
     # order()
     # kline()
     # symbolList()
-    currencyRate()
-    currencyCoinRate()
-    coinRate()
-    # addEntrustSheet()
+    # currencyRate()
+    # currencyCoinRate()
+    # coinRate()
+    addEntrustSheet()
     # cancelEntrustSheet()
     # cancelAllEntrustSheet()
     # getUserHistoryEntrustSheet()

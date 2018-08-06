@@ -320,8 +320,8 @@ class BitZ_Mode():
         self.params['timeStamp'] = str(int(time.time()))
         self.params['nonce'] = str(int(time.time() % 1000000))
         self.params['type'] = str(_type)
-        self.params['price'] = float(price)
-        self.params['number'] = float(number)
+        self.params['price'] = str(price)
+        self.params['number'] = str(number)
         self.params['symbol'] = str(symbol)
         self.params['tradePwd'] = self.TradePw
         self.signature()
