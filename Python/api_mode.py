@@ -220,6 +220,90 @@ class BitZ_Mode():
         __response = BitZ_Mode().httpsGet(url=__url)
         return json.dumps(__response.json(), indent=2)
 
+    #获取当前法币汇率信息
+    def currencyRate(self):
+        """
+        :return:
+                {
+                "status": 200,
+                "msg": "",
+                "data": {
+                    "cny_usdt": {
+                        "coin": "cny",
+                        "currencyCoin": "usdt",
+                        "rate": "0.146471",
+                        "rateTime": "2018-08-03 23:29:03",
+                        "ratenm": "cny/usdt",
+                        "flatform": "api.k780.com",
+                        "created": 1533461732,
+                        "timezone": "PRC"
+                    },
+                },
+                "time": 1533462219,
+                "microtime": "0.56846900 1533462219",
+                "source": "api"
+            }
+        """
+        __url = self.URL + "currencyRate"
+        __response = BitZ_Mode().httpsGet(url=__url)
+        return json.dumps(__response.json(), indent=2)
+
+    #获取虚拟货币法币汇率信息
+    def currencyCoinRate(self):
+        """
+        :return:
+                {
+                    "status": 200,
+                    "msg": "",
+                    "data": {
+                        "btc": {
+                            "usdt": "7392.98000000",
+                            "dkkt": "47619.53224133",
+                            "eth": "17.85045531",
+                            "cny": "50474.01874773",
+                            "jpy": "822173.04270462",
+                            "usd": "7392.98000000",
+                            "dkk": "47619.53224133",
+                            "btc": "1"
+                        },
+                    },
+                    "time": 1533382048,
+                    "microtime": "0.65652200 1533382048",
+                    "source": "api"
+                }
+        """
+        __url = self.URL + "currencyCoinRate"
+        __response = BitZ_Mode().httpsGet(url=__url)
+        return json.dumps(__response.json(), indent=2)
+
+    #获取币种对应汇率信息
+    def coinRate(self):
+        """
+        :return:
+                {
+                "status": 200,
+                "msg": "",
+                "data": {
+                    "777": {
+                        "usdt": "0.01123732",
+                        "dkkt": "0.07238168",
+                        "eth": "0.00002713",
+                        "cny": "0.07672050",
+                        "jpy": "1.24970302",
+                        "usd": "0.01123732",
+                        "dkk": "0.07238168",
+                        "btc": "0.00000152"
+                    },
+                },
+                "time": 1533382189,
+                "microtime": "0.96448500 1533382189",
+                "source": "api"
+            }
+        """
+        __url = self.URL + "currencyCoinRate"
+        __response = BitZ_Mode().httpsGet(url=__url)
+        return json.dumps(__response.json(), indent=2)
+
 
     #提交委托单
     def addEntrustSheet(self,_type,price,number,symbol):

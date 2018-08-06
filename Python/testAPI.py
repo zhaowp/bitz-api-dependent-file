@@ -38,6 +38,21 @@ def symbolList():
     print BitZ_Mode().symbolList()
 
 
+#获取当前法币汇率信息
+def currencyRate():
+    print BitZ_Mode().currencyRate()
+
+
+#获取虚拟货币法币汇率信息
+def currencyCoinRate():
+    print BitZ_Mode().currencyCoinRate()
+
+
+#获取币种对应汇率信息
+def coinRate():
+    print BitZ_Mode().coinRate()
+
+
 #提交委托单
 def addEntrustSheet():
     _type = '2'             #买：1  卖：2
@@ -100,10 +115,13 @@ if __name__=="__main__":
     # order()
     # kline()
     # symbolList()
+    currencyRate()
+    currencyCoinRate()
+    coinRate()
     # addEntrustSheet()
     # cancelEntrustSheet()
     # cancelAllEntrustSheet()
     # getUserHistoryEntrustSheet()
     # getUserNowEntrustSheet()
     # getEntrustSheetInfo()
-    getUserAssets()
+    # getUserAssets()

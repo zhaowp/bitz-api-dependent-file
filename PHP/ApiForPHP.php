@@ -67,6 +67,20 @@ class bitz
         return $this->http_request($url);
     }
 
+    public function currencyRate(){
+        $url = $this->url.'/Market/currencyRate';
+        return $this->http_request($url);
+    }
+
+    public function currencyCoinRate(){
+        $url = $this->url.'/Market/currencyCoinRate';
+        return $this->http_request($url);
+    }
+
+    public function coinRate(){
+        $url = $this->url.'/Market/coinRate';
+        return $this->http_request($url);
+    }
 
     //array('apiKey' => '');
     public function getUserAssets($parms){
